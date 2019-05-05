@@ -1,0 +1,112 @@
+\chapter{Resultados}\label{chp:res}
+
+Os dados dos testes foram gravados em uma serie de arquivos especificando o angulo de incidencia utilizado. O conjunto de dados, originais e derivados (por derivados entende-se aqueles criados a partir de dados originais), estao apresentados na tabela X.
+
+\begin{table}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{TABELA COM DADOS GRAVADOS\cite{autor}.}
+    \label{fig:placeholder}
+\end{table}
+
+Na imagem X pode ser visto um exemplo dos dados adquiridos durante uma bateria de testes. A gravaçao dos dados na plataforma ocorre a uma taxa fixa de 100Hz, diferente da taxa original de aquisiçao dos sensores, que pode ser maior ou menor que esta. Isso é feito de modo que todos os dados tenham uma mesma frequencia de ocorrencia na plataforma e portanto tenham sempre correspondencia nos outros dados, facilitando o posterior processamento. Nisso alguns dados acabam cortados, como os da IMU, enquanto outros como o das células acabam se repetindo até que novos valores estejam disponiveis.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{PLOTS OCUPANDO A PAGINA INTEIRA - 1\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{PLOTS OCUPANDO A PAGINA INTEIRA - 2\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{PLOTS OCUPANDO A PAGINA INTEIRA - 3\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\section{Limpeza, filtragem e reduçao dos dados}
+
+\subsection{Limpeza de dados}
+
+A premissa principal para o uso dos dados do teste é o de que os valores medidos estajem dentro do intervalo de uso dos sensores e de que as aceleraçoes sobre o sistema sejam baixas. O intervalo de uso dos sensores se encontra na tabela X.
+
+\begin{table}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{TABELA COM ZONA DE USO DE CADA SENSOR\cite{autor}.}
+    \label{fig:placeholder}
+\end{table}
+
+O principal sensor a limitar o uso dos dados foi o Pitot. Abaixo de X m/s o sensor é incapaz de medir a velocidade corretamente, portanto todos os dados adquiridos abaixo dessa velocidade foram descartados, como pode ser visto em exemplo na figura X.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{PLOTS DE VELOCIDADE SUSTENTACAO E ACELERACAO Z\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Os dados resultantes desse processo sao considerados dados validos, ainda que possam nao ser interessantes para nossa mediçao. Isso acontece porque possivelmente esses dados nao se encaixam no modelo proposto, por exemplo, se eles tiverem altas aceleraçoes. Por este motivo dados com aceleraçao em X, Y ou Z maiores que 0.5g foram descartados no proximo subset.
+
+Ainda que os dados resultantes desses dois processos sejam validos e utilizaveis no modelo, ainda temos uma premissa a mais para cumprir: a faixa de Reynolds. Dado que o teste foi executado a uma velocidade praticamente constante, o resultado final sera dado para apenas um valor de Reynolds, sendo assim, dados adquiridos que sejam validos mas nao estejam perto do Reynolds do teste nao devem ser utilizados, dado que devem apresentar comportamento aerodinamico bastante diferente daquele correpondente ao Reynolds desejado. Assim, os dados finais a serem utilizados no teste serao aqueles correspondentes aos patamares de velocidade onde a velocidade praticamente constante e proxima ao Reynolds desejado foi alcançada. 
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{PLOTS COM PATAMARES DE VELOCIDADE CONSTANTE\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsection{Filtragem}
+
+Apos a limpeza dos dados, onde foram removidos aqueles que estavam fora da zona de interesse, é hora de avaliar a filtragem do sinal, buscando-se aumentar a relaçao sinal-ruido.
+
+Foi realizada uma analise FFT nos dados de cargas, velocidade e aceleraçoes.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{ANALISES FFT\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+A partir do resultado das analises foram dimensionados filtros para a remoçao dos ruidos de alta frequencia em cada um dos dados, utilizando um filtro Passa-baixa. Os resultados se encontram na imagem X.
+
+\subsection{Reduçao}
+
+Em posse dos dados filtrados passa-se a etapa de reduçao. Nao é do interesse de quem esta analisando os resultados saber qual sustentaçao, arrasto ou momento foram alcançados para cada velocidade durante os testes, mas a reduçao destes, na forma dos coeficientes aerodinamicos, que sao de analise direta.
+
+EQUAÒAO DOS COEFICIENTES AERODINAMICOS
+
+As equaçoes dos coeficientes foram aplicadas a todas as amostras de dados gerando tres novas colunas, de CL, CD e CM. Para cada bateria de teste foi calculado o valor medio de cada coeficiente, e em seguida foi calculado para cada angulo de incidencia o valor medio dos coeficientes das baterias, assim como seu desvio padrao.
+
+Os valores finais de media e desvio padrao para os coeficientes de cada angulo de incidencia estao explicitados nos graficos X Y e Z.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{GRAFICOS CX VS ALPHA COM DESVIO PADRAO\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+DISCUTIR RESULTADOS E AVALIAR A INCERTEZA DA BANCADA
+
+\begin{itemize}
+    \item Mostrar resultados crus das mediçoes
+    \item Mostrar zonas de interesse nos dados crus (remover altas aceleracoes)
+    \item Mostrar filtros utilizados para remover zonas sem interesse (apenas dados em velocidade "constante")
+    \item Mostrar fusao dos sensores para chegar ao resultado fundido (remover aceleracoes das forças atraves do modelo estatico)
+    \item Mostrar filtro aplicado nos resultados fundidos, justificando o uso dos mesmos (moving average? porque? pode?)
+    \item Mostrar resultado fundido e filtrado
+    \item Mostrar resultados comparaveis aos da literatura (curvas Cl/Cd/Cm x Alpha, ClxCd, para diferentes Reynolds)
+    \item Assumindo que os dados experimentais estejam corretos, qual a incerteza da mediçao da bancada?
+\end{itemize}
+

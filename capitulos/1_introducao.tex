@@ -1,0 +1,27 @@
+\chapter{Introdução}\label{chp:intro}
+
+Um problema frequente em projetos aeronáuticos é a incerteza quanto aos dados com que se está trabalhando, em especial os coeficientes aerodinâmicos dos diversos componentes do projeto. A resolução deste problema é abordada em geral de três maneiras: modelos teóricos [1], simulação fluidodinâmica [2] ou experimentação, possuindo cada um destes suas vantagens e desvantagens.
+
+A estimativa teórica em geral se encontra no projeto como método único, ou como método inicial em projetos com mais otimizações. A vantagem deste se dá pela vasta literatura disponível e por consistir basicamente na aplicação das devidas fórmulas. A desvantagem está na incerteza sobre a exatidão do resultado, isto é, tem-se um resultado, mas não se sabe o quanto ele é próximo a realidade e, se o valor é subestimado ou se é superestimado.
+
+A simulação é uma alternativa muito utilizada quando se tem uma literatura já consolidada para a geometria avaliada. Sua vantagem se dá na maior exatidão dos resultados quando o modelo e os parâmetros de simulação já são bem conhecidos e comportados. O problema principal deste metodo se encontra na maior dificuldade de emprego, ja que se limita a modelos que ja tenham sido validados. Assim como nos modelos teóricos, na simulaçao existe dificuldade em se saber o quanto o resultado está errado, e para geometrias com parâmetros de simulaçao desconhecidos se corre o risco de ter resultados ordens de grandeza afastados da realidade. [3].
+
+A experimentação consiste em preparar um modelo físico semelhante ao projetado e ensaia-lo em um escoamento com características conhecidas. A dificuldade de emprego deste em geral é maior que a dos primeiros por exigir um trabalho de construçao bem executado e equipamentos de mediçao que forneçam a precisão esperada nos resultados. Estas características fazem com que a experimentação tenha um custo elevado, muito diferente dos dois primeiros métodos, que tem custo praticamente nulo. Sua vantagem, porém, se dá no fato de que a certeza sobre os valores encontrados em geral é muito maior. Caso o teste tenha sido executado da maneira correta, os equipamentos de medição tenham precisão conhecida e sejam respeitadas as premissas do modelo, chega-se num resultado que pode ser tomado como real dentro de um intervalo de incerteza do equipamento de medição, isto é, diferente dos dois métodos anteriores, onde o resultado encontrado pode não corresponder com a realidade (se o modelo ou parâmetros incorretos forem utilizados), neste existe uma faixa de certeza sobre o resultado.
+
+Como já dito, o principal problema do método experimental é a necessidade de equipamento especializado. O método mais comum envolve a colocação do modelo construído dentro de um túnel de vento, com as forças no modelo medidas através de uma balança de precisão [4]. Túneis de vento, contudo, são equipamentos grandes e caros, e não existentes na maioria das universidades brasileiras. Túneis pequenos, encontrados em um menor número de universidades (como a UFSC) não apresentam a possibilidade de medição de esforços aerodinâmicos em grandes geometrias, como asas ou dispositivos de ponta de asa, limitando-se praticamente a medição de perfis e outras geometrias simples, com dimensões e Reynolds bastante reduzidos [5].
+
+A proposta deste trabalho é o projeto e análise de uma bancada de medição de esforços aerodinâmicos em ambiente aberto, consistindo de uma balança de precisão a ser embarcada na caçamba de uma camionete, que ao ser movimentada faz com que um escoamento surja sobre o dispositivo a ser experimentado. Este método propõe um equipamento com custo reduzido e de facil utilizaçao, eliminando a necessidade de um túnel de vento. Para alcançar o objetivo proposto o projeto procurara utilizar peças comerciais, manufatura aditiva e equipamentos eletrônicos de baixo custo.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FIGURA MOSTRANDO PROPOSTA INCIIAL DA BANCADA\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{itemize}
+    \item Necessidade por bons coeficientes aerodinamicos
+    \item Simulaçoes em regime transisente sao duvidosas
+    \item Tunel de vento é dificil de encontrar, caro, e tem tamanho limitado
+    \item Simulaçoes nao pegam mudanças advindas da construçao
+\end{itemize}
