@@ -75,7 +75,7 @@ O veiculo a ser utilizado nos testes é do modelo Volkswagen Amarok 2017, tendo 
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.8\linewidth]{figuras/renders/bancada_no_carro.png}
+    \includegraphics[width=.8\linewidth]{figuras/renders/bancada_no_carro_perspectiva.png}
     \caption{ESQUEMATICO DA BANCADA + TORRE\cite{autor}.}
     \label{fig:placeholder}
 \end{figure}
@@ -125,7 +125,7 @@ Ainda na bancada serão instalados um tubo de Pitot e um Pitot de múltiplas tom
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \includegraphics[width=.8\linewidth]{figuras/outras/placeholder.png}
     \caption{IMAGEM DA SONDA NA ASA \cite{autor}.}
     \label{fig:placeholder}
 \end{figure}
@@ -134,7 +134,7 @@ O sistema deve comportar ainda a adição de novos sensores de forma a permitir 
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \includegraphics[width=.8\linewidth]{figuras/outras/placeholder.png}
     \caption{IMAGEM DE PITOT NO PROFUNDOR \cite{autor}.}
     \label{fig:placeholder}
 \end{figure}
@@ -145,8 +145,8 @@ Para a medição do fator de carga vertical, assim como da temperatura e pressã
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
-    \caption{FOTO DA IMU\cite{autor}.}
+    \includegraphics[width=.8\linewidth]{figuras/internet/IMU.jpg}
+    \caption{Unidade de Medição Inercial (IMU) utilizada na bancada\cite{autor}.}
     \label{fig:placeholder}
 \end{figure}
 
@@ -158,9 +158,23 @@ De forma a facilitar o uso da bancada todo o controle do sistema foi projetado p
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
-    \caption{FOTO DO APLICATIVO\cite{autor}.}
-    \label{fig:placeholder}
+    \includegraphics[width=.8\linewidth]{figuras/outras/placeholder.png}
+    \caption{TELA DO APLICATIVO 1\cite{autor}.}
+    \label{fig:tela_aplicativo_1}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/outras/placeholder.png}
+    \caption{TELA DO APLICATIVO 2\cite{autor}.}
+    \label{fig:tela_aplicativo_2}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/outras/placeholder.png}
+    \caption{TELA DO APLICATIVO 3\cite{autor}.}
+    \label{fig:tela_aplicativo_3}
 \end{figure}
 
 Será desenvolvido ainda um software de tratamento e analise de dados com interface gráfica e uso facilitado, este a ser utilizado em computador, devido a maior flexibilidade do mesmo para trabalhos longos.
@@ -181,9 +195,9 @@ Uma solução que responde de forma positiva a maioria dessas necessidades é a 
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
-    \caption{FOTO DO PERFIL DE ALUMINIO\cite{autor}.}
-    \label{fig:placeholder}
+    \includegraphics[width=.8\linewidth]{figuras/internet/perfil_aluminio.jpg}
+    \caption{Perfil extrudado em alumínio utilizado na construção da bancada\cite{autor}.}
+    \label{fig:perfil_aluminio}
 \end{figure}
 
 A desvantagem desta estrutura fica no provável alto arrasto aerodinâmico. Este porém é um problema contornável posteriormente carenando-se a estrutura. Ainda assim, com ou sem carenagem, este arrasto deve ser levado em conta nos testes e a maneira levantada de se mensurar esta grandeza é realizar os testes sem um componente a ser medido, medindo-se assim o arrasto aerodinâmico da própria bancada para que se possa descontar este valor das medições posteriores.
@@ -197,9 +211,16 @@ De modo a se medir o arrasto, duas soluções foram consideradas:
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
-    \caption{ESQUEMATICO DAS SOLUCOES 1 E 2\cite{autor}.}
-    \label{fig:placeholder}
+    \includegraphics[width=.8\linewidth]{figuras/renders/bandeja_inferior.png}
+    \caption{Solução para a medição de arrasto utilizando apenas uma célula de carga\cite{autor}.}
+    \label{fig:bandeja_inferior_1}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/renders/bandeja_inferior.png}
+    \caption{Solução para a medição de arrasto utilizando três células de carga TROCAR FOTO PRA 3 CELULASSS\cite{autor}.}
+    \label{fig:bandeja_inferior_2}
 \end{figure}
 
 Devido ao fato de que a segunda solução exigiria ao menos três células de carga e as colocaria como componentes estruturais (já que não existiria outra ligação estrutural entre a parte inferior e superior da bancada) a primeira opção foi escolhida.
@@ -217,7 +238,7 @@ Tal sistema consiste de um computador central, modelo Raspberry Pi 3 B+, rodando
 \begin{itemize}
     \item Tubos de Pitot com transdutores MPVX7002DP
     \item Modulo GNSS modelo uBlox NEO-6M
-    \item IMU modelo GY85, com acelerômetro de 3 eixos, giroscópio de 3 eixos, magnetômetro de 3 eixos, barômetro e termômetro
+    \item IMU modelo GY-86, com acelerômetro de 3 eixos, giroscópio de 3 eixos, magnetômetro de 3 eixos, barômetro e termômetro
 \end{itemize}
 
 Além destes sensores o sistema possui um par de rádios seriais de 433MHz, que pode ser utilizado para transmissão dos dados em tempo real para o celular, comunicando a bancada com o aplicativo controlado pelo operador.
@@ -243,9 +264,9 @@ A figura X mostra a arquitetura do software divida em seus diversos módulos.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \includegraphics[width=.8\linewidth]{figuras/outras/placeholder.png}
     \caption{ESQUEMATICO DO SOFTWARE EMBARCADO\cite{autor}.}
-    \label{fig:placeholder}
+    \label{fig:esquematico_software_embarcado}
 \end{figure}
 
 Este software já existia em versão primaria na plataforma T2016 e foi refatorado para uso na nova plataforma, permitindo que suas funções fossem estendidas. A totalidade das mudanças compreendidas por este trabalho pode ser vista no repositório Git do projeto [X]. 
@@ -268,7 +289,7 @@ A figura X mostra a arquitetura deste software.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \includegraphics[width=.8\linewidth]{figuras/outras/placeholder.png}
     \caption{ESQUEMATICO DO SOFTWARE DE ANALISE\cite{autor}.}
-    \label{fig:placeholder}
+    \label{fig:esquematico_software_analise}
 \end{figure}
