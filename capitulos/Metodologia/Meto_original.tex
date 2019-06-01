@@ -1,0 +1,616 @@
+\chapter{Metodologia}\label{chp:met}
+
+\section{Projeto}
+
+\subsection{Necessidades}
+
+\subsubsection{O cliente}
+O cliente do presente projeto é a equipe Céu Azul Aeronaves, que representa anualmente a UFSC na competiçao SAE Brasil Aerodesign. A equipe Céu Azul desenvolve VANTs com missoes variadas, mas que giram em torno da maximizaçao da eficiencia estrutural da aeronave projetada [X]. O autor deste texto trabalhou durante 5 anos na equipe e viu na necessidade dela a oportunidade de desenvolvimento do presente trabalho.
+
+O objetivo da bancada é medir os coeficientes aerodinamicos (de sustentaçao, arrasto e momento) em componentes dos VANTs desenvolvidos na equipe, além da mediçao de empuxo dinamico em conjuntos moto-propulsores e a interaçao de seu escoamento com o restante da aeronave.
+
+Para cumprir com o objetivo proposto, algumas necessidades foram levantadas:
+
+\begin{enumerate}
+    \item Tal bancada deve possuir rigidez suficiente para que suas mediçoes sejam consistentes no tempo e a necessidade de manutençao seja baixa.
+    \item Deve ser possivel acoplar a bancada na caçamba de uma camionete ou ao rack de um carro comum, de modo a facilitar sua instalaçao.
+    \item Levando em conta que a equipe sofre de alta rotatividade de membros, e nem sempre é possivel garantir que existirao pessoas capacitadas a trabalhar neste projeto, é importante que a bancada em questao seja entregue na forma de um "produto final", isto é, funcione sem a necessidade de conhecimento de suas intricidades, com pouco mais que um manual de instruçoes e consideraçoes para seu uso.
+    \item Da mesma forma que o uso da bancada deve ser facilitado, também deve ser assim o uso dos dados fornecidos por ela. Idealmente se deseja que a mesma entregue os coeficientes finais, ja processados, assim como suas incertezas de mediçao.
+\end{enumerate}
+
+
+\subsection{Consideraçoes}
+
+Assume-se para o presente projeto que o escoamento de ar que alcança a geometria analisada tem direçao relativamente estavel, é aproximadamente paralela ao deslocamento do veiculo e que a velocidade é praticamente constante para pequenos trechos a serem analisados.
+
+Dado que a velocidade do veiculo é controlada por um piloto humano, oscilaçoes da ordem de 10\% na velocidade sao esperadas durante os patamares de velocidade e serao mensuradas através de tubos de pitot.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FIGURA COM ANGULO DE ESCOAMENTO INDUZIDO PELO VEICULO\cite{autor}.}
+    \label{fig:vehicle-angle}
+\end{figure}
+
+É possivel também que a carroceria do veiculo induza um angulo diferente de zero ao escoamento que chega a bancada (ver \prettyref{fig:vehicle-angle}). Um pitot de multiplas tomadas sera instalado na bancada a fim de medir este angulo e ajustar os dados em um pos-processamento. Eh importante ressaltar que tal sonda  possui limitaçao de operaçao de aproximadamente 15 graus em cada sentido[X], sendo assim, angulos maiores que este nao terao uma leitura adequada. Grandes desvios de angulo do escoamento ou velocidades muito instaveis provavelmente tornarao o processamento dos dados dos testes impeditivo e portanto cuidados devem ser tomados para que o teste se conduza de forma adequada.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FIGURA MOSTRANDO FORCA RADIAL INDUZIDA POR PISTA CURVA\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FIGURA MOSTRANDO FATOR DE CARGA SENTIDO EM OSCILACOES\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Assume-se também que existem obstaculos na pista de teste (tais como buracos e pequenas elevaçoes), mas que de forma geral o teste sera conduzido em pistas relativamente retas e planas, de modo que nao existam vibraçoes constantes ou aceleraçoes radiais a serem modeladas no sistema. Pequenas oscilaçoes serao medidas por alecerometros e giroscopios e levadas em conta no pos-processamento.
+
+\subsection{Estimativas}
+
+Para os projetos mecanico e eletronico foram estimadas situaçoes extremas de mediçao e para estas a bancada foi dimensionda:
+
+\begin{itemize}
+    \item Caracterizaçao de aeronave completa com 300N de sustentaçao, 50N de arrasto e XXXN de Momento
+    \item Caracterizaçao de conjunto motopropulsor com 70N de empuxo estatico
+    \item Escoamentos com velocidade de até 25m/s
+    \item Fatores de carga na bancada de até 4g
+\end{itemize}
+
+\subsection{Soluçao proposta}
+
+A soluçao proposta consiste em uma bancada sensoriada, montada sobre uma estrutura metalica que a eleve até a altura desejada para o teste.
+
+A camionete a ser utilizada nos testes é do modelo Fiat Strada 2010, tendo a caçamba uma altura de XXXm e o teto do carro elevando-se XXXm além da altura da caçamba.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{ESQUEMATICO DA BANCADA + TORRE\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsubsection{Sensoriamento das forças}
+
+As forças na bancada sao sensoriadas por quatro celulas de cargas verticais e uma celula de carga horizontai. A celula horizontal permite mediçao do arrasto/empuxo, o somatorio das celulas verticais permitem a mediçao da sustentaçao, a diferença entre as celulas frontais e traseiras permite a mediçao do momento de picada (pitch) e a diferença entre as celulas da esquerda e da direita permite a mediçao do momento de rolagem (roll).
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{ESQUEMATICO COM DISPOSICAO DAS CELULAS E MEDICAO DAS FORCAS\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsubsection{Sensoriamento de velocidade e angulo de ataque}
+
+Ainda na bancada serao instalados um tubo de pitot e um pitot de multiplas tomadas (sonda de angulo de ataque). Ambos serao colocados em escoamento livre. Enquanto o pitot sera acoplado a propria bancada, a sonda ficara alinhada com o eixo principal de picada do componente que estiver sendo analisado, de modo a medir o angulo de ataque real do mesmo. 
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{IMAGEM DA SONDA NA ASA E PITOT NA BANCADA \cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+O sistema deve comportar ainda a adiçao de novos sensores de forma a permitir a caracterizaçao do escoamento em outros pontos de interesse, como esteira da helice ou escoamento incidente no profundor.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{IMAGEM DE PITOT NO PROFUNDOR \cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsubsection{Sensoriamentos adicionais}
+
+Para a mediçao do fator de carga vertical, assim como da temperatura e pressao do ar, uma Unidade de Mediçao Inercial (IMU) com acelerometro, giroscopio, barometro e termometro sera instalada na bancada.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DA IMU\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsubsection{Estaçao de controle e software de processamento}
+
+Num primeiro momento foi levantada a possibilidade de se utilizar um computador portatil como estaçao de controle da bancada. Avaliou-se porém que isto poderia tornar o uso dificultado, ja que em geral estes computadores possuem baterias que permitem poucas horas de uso continuo, limitando o tempo de execuçao de teste, além de serem relativamente grandes e pouco praticos de se utilizar dentro do carro.
+
+De forma a facilitar o uso da bancada todo o comando do sistema foi projetado para ser realizado através de um aplicativo para celular. Nele é possivel controlar a execuçao do teste, inserir informaçoes para posterior avaliaçao, assim como acompanhar as mediçoes dos sensores em tempo real, de modo a identificar possiveis problemas de forma rapida.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DO APLICATIVO\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Sera desenvolvido ainda um software de tratamento e analise de dados com interaface grafica e uso facilitado, este sim a ser utilizado em computador, devido a maior flexibilidade do mesmo para trabalhos mais longos.
+
+\section{Projeto Mecânico}
+
+Para o projeto mecanico foram levantadas as seguintes necessidades:
+
+\begin{itemize}
+    \item Facilidade construtiva, de forma a tornar rápida a construção e manutenção da bancada
+    \item Leveza, de modo a não se criar uma barreira quanto ao uso da mesma
+    \item Baixo arrasto aerodinâmico, a fim de diminuir a influência da estrutura nas medições
+    \item Rigidez, para que as forças e momentos medidos sejam realmente os modelados
+    \item Baixo custo
+\end{itemize}
+
+Uma soluçao que responde de forma positiva a maioria dessas necessidades é a de uma estrutura composta de perfis extrudados de aluminio. Este tipo de estrutura é muito comum de ser encontrada em laboratorios ou fabricas, sendo comumente utilizada para a construçao de bancadas experimentais e estaçoes de trabalho.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DO PERFIL DE ALUMINIO\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+O contra desta estrutura fica pelo provavel alto arrasto aerodinamico. Este porém é um problema contornavel posteriormente carenando-se a estrutura. Ainda assim, com ou sem carenagem, este arrasto deve ser levado em conta nos testes e a maneira levantada de se mensurar esta grandeza é realizar os testes com a bancada sem um componente a ser medido, medindo-se assim o arrasto aerodinamico da propria bancada para que se possa descontar este valor das mediçoes posteriores.
+
+De modo a se medir o arrasto, duas soluçoes foram consideradas: 
+
+\begin{enumerate}
+    \item Uma celula de carga horizontal, tendo a bancada liberdade de movimento no eixo X
+    \item Tres celulas de carga restringindo completamente os graus de liberdade da bancada
+\end{enumerate}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{ESQUEMATICO DAS SOLUCOES 1 E 2\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Devido ao fato de que a segunda soluçao exigiria ao menos tres celulas de carga e as colocaria como componentes estruturais (ja que nao existiria outra ligaçao estrutural entre a parte inferior e superior da bancada) a primeira opçao foi escolhida.
+
+Para dar liberdade de movimentaçao no eixo X um conjunto de guias lineares e fixaçoes rolamentadas foi escolhido, devido a seu baixo atrito e baixo custo. O contra da soluçao com apenas uma celula de carga se da justamente devido a existencia desta força de atrito das guias no eixo X, que a principio existe e nao é medida. Esta força pode porem ser avaliada num primeiro momento, em laboratorio, e compensada posteriormente.
+    
+\section{Projeto Eletrônico}
+
+Para o sistema eletronico da bancada, tomou-se como ponto de partida a telemetria T2016, desenvolvida pela equipe Céu Azul inicialmente para utilização nos projetos da classe Advanced.
+
+Tal sistema consiste de um computador central, modelo Raspberry Pi 3 B+, rodando um sistema operacional Linux, com sensores conectados como perifericos. Entre os sensores ja disponiveis na equipe estavam:
+
+\begin{itemize}
+    \item Tubos de pitot com transdutores MPVX7002DP
+    \item GNSS modelo uBlox neo-6m
+    \item IMU modelo GY85, com acelerometro de 3 eixos, giroscopio de 3 eixos, magnetometro de 3 eixos, barometro e termometro
+\end{itemize}
+
+Alem destes sensores o sistema possuira um par de rádios seriais de 433MHz, que pode ser utilizdo para transmissão dos dados em tempo real para o celular, comunicando a bancada com o aplicativo controlado pelo operador.
+
+Para a mediçao das forças na bancada foi necessaria a aquisiçao de células de carga e transdutores de célula de carga. Devido ao baixo custo optou-se por células sem marca. Esta decisao implica contudo num custo extra de tempo para a caracterizaçao das células.
+
+Para a transduçao dos dados da celula (de resistencia para tensao e posteriormente para força) foram adquiridos módulos HX711. Estes modulos sao bastante comuns no mercado e implementam num mesmo CI a alimentaçao e leitura da ponte de wheatstone, alem da transformaçao em dados digitais. A maior vantagem deste CI é provavelmente a alimentaçao integrada da ponte de Wheatstone, que é no caso ja estabilizada e filtrada, resultando em uma alta relaçao sinal-ruido. Em geral essa alimentaçao acontece em circuitos discretos separados do CI de leitura, e acabam resultando numa pior relaçao sinal-ruido.
+
+\section{Projeto de Software Embarcado}
+
+O software que roda de forma embarcada na plataforma central consiste em uma serie de modulos escritos em Python com funçoes desmembradas. Entre as funçoes necessarias no software destacam-se:
+
+\begin{itemize}
+    \item Aquisiçao de dados dos sensores
+    \item Parseamento dos dados para padrao comum
+    \item Transmissao serial de dados via radio
+    \item Recebimento e interpretaçao de comandos externos
+    \item Gravaçao dos dados no sistema
+    \item Coordenaçao e sincronia dos processos anteriores
+\end{itemize}
+
+A figura X mostra a arquitetura do software divida em seus varios modulos.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{ESQUEMATICO DO SOFTWARE EMBARCADO\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Este software ja existia em versao primaria na plataforma T2016 e foi refatorado para uso na nova plataforma, permitindo que suas funçoes fossem extendidas. A totalidade das mudanças compreendidas por este trabalho pode ser vista no repositorio Git do projeto [X]. 
+\section{Projeto do Software de Analise}
+
+O software de analise tem por funçao receber os dados "crus" gerados pela bancada e entregar dados uteis processados, com suas devidas incertezas estimadas.
+
+Entre as funçoes desejadas neste software estao:
+
+\begin{itemize}
+    \item Apresentar uma interface amigavel para uso facilitado
+    \item Receber os dados "crus"
+    \item Filtrar cada dado conforme especificaçoes previas ou personalizadas pelo usuario
+    \item Apresentar os dados crus e processados na forma de graficos
+    \item Permitir interaçao do usuario com os dados
+    \item Exportar os dados em formato util, seja na forma textual, em planilhas ou mesmo diretamente como graficos
+\end{itemize}
+
+A figura X mostra a arquitetura deste software.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{ESQUEMATICO DO SOFTWARE DE ANALISE\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\section{MVP}
+
+Para validar a ideia desta bancada foi proposto um MVP que possuise as principais caracteristicas da soluçao proposta, mas que pudesse ser construido com materiais ja disponiveis pela equipe.
+
+Do ponto de vista de projeto mecanico, esta primeira versao da bancada teve sua estrutura construida em madeira, utilizou corrediças de gaveta para dar liberdade de movimento no eixo X e usava como torre uma estrutura de aço. A escolha por estas soluçoes se deu pela ja disponibilidade das mesmas na equipe Céu Azul.
+
+Do ponto de vista de projeto eletronico todos os componentes ja estavam presentes, com exceçao do pitot de multiplos angulos, das celulas de carga e dos modulos HX711, sendo estes ultimos dois adquiridos.
+
+Do ponto de vista de software o aplicativo para controle da bancada foi desenvolvido de forma preliminar enquanto o software de tratamento e analise de dados ainda nao existia.
+
+As fotos a seguir mostram o MVP finalizado.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DA BANCADA 1.0 - 1\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DA BANCADA 1.0 - 2\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Foi realizada uma serie de testes com esta bancada, entre eles o de mediçao de forças aerodinamicas em uma asa, de mediçao do empuxo dinamico em motor e de mediçao do momento causado pelo acionamento de superficies de comando (ailerons) em uma asa. O procedimento destes testes e seus resultados esta detalhado em [artigo_bancada_1]. Destacam-se aqui as principais conclusoes levantadas por [artigo_bancada_1]:
+
+\begin{itemize}
+    \item Erro de X% no CL
+    \item ponto2
+    \item ponto3
+\end{itemize}
+
+Fica claro portanto que o MVP foi um sucesso no sentido de que provou o funcionamento da bancada proposta, porém possuia problemas estruturais intrinsecos as escolhas para a prototipagem mecanica, e portanto nao demonstrou fidelidade suficiente para seu uso. Além disso, ficaram claros diversos problemas do ponto de vista de execuçao, entre eles:
+
+\begin{itemize}
+    \item Aplicativo ainda em estagio inicial, apresentando uma interface pouco intuitiva
+    \item Dificuldade para se ajustar o angulo de incidencia do dispositivo testado
+    \item Problemas recorrentes de mal-contato elétrico, resultando na perda de baterias inteiras de dados
+    \item Pouco controle sobre o estado e funcionamento do computador da bancada
+    \item Configuraçao do teste no computador da bancada era realizado modificando-se o script original, o que tornava esta configuraçao bastante suscetivel a erros pelo operador 
+    \item Software embarcado (no computador da bancada) pouco organizado, com as estruturas de funcionamento do software altamente entrelaçadas, dificultando sua expansao e manutençao
+    \item Falta de sincronia entre os dados das celulas de carga com relaçao aos outros sensores, o que tornava o processamento dos dados um processo bastante massante
+    \item Falta de informaçoes sobre o teste no arquivo de gravaçao dos dados, o que fazia com que o operador precisasse recorrer a outros meios para guardar a informaçao sobre o que e como estava sendo feito em cada bateria de testes, causando muitas vezes a perda de informaçao sobre as mesmas
+    \item Falta de software para analise dos dados, o que tornava o processo de utilizaçao dos dados gerados pela bancada uma tarefa altamente especializada
+\end{itemize}
+
+Estes pontos foram tomados como base para a segunda versao da bancada, detalhada neste texto e denominada "Primeira versao final".
+
+\section{Primeira versao final}
+
+Levando em conta os pontos levantados no MVP deu-se inicio a modelagem e construçao da primeira versao final da bancada.
+
+\subsection{Modelo físico}
+
+COMENTAR SOBRE O MODELO ESTATICO E A CORRECAO DE FALSA SUSTENTACAO
+
+\subsection{Mecanica}
+
+A estrutura da bancada utilizando perfis extrudados em aluminio foi modelada no software Solidworks.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{RENDERINGS DA ESTRUTURA DA BANCADA\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Os perfis de aluminio sao adquiridos em barras de 1 metro de comprimento. A modelagem permitiu assim a definiçao das medidas dos cortes a serem realizados e a otimizaçao do uso das barras.
+
+Utilizando a estimativa de esforços assumida previamente foi desenvolvida a estrutura da bancada realizando-se simulaçoes estruturais no software Ansys Mechanical de modo a se avaliar os deslocamentos maximos da estrutura. Para o projeto decidiu-se por nao permitir deslocamentos verticais maiores que Xmm e deslocamentos horizontais maiores que Xmm. Esta restriçao visa impedir que a deformaçao da bancada induza erros de alinhamento e consequentemente misture as medidas de sustentaçao e arrasto [X].
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{RENDERING DA SIMULACAO DE ESFORÇOS MECANICOS NA BANCADA\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+As conexoes estuturais foram feitas com cantoneiras planas de aço, garantindo rigidez nas juntas, o que agrega fidelidade na simulaçao (uma vez que nela as juntas sao consideradas rigidas).
+
+Para o encaixe das células de carga na bancada, assim como dos suportes das guias lineares e dos pillow-blocks, foram projetados adaptadores que posteriormente foram produzidos via manufatura aditiva de polímero. Este método de manufatura permitiu a rapida prototipagem dessas peças e acelerou o desenvolvimento do projeto.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DAS PEÇAS IMPRESSAS - 1\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DAS PEÇAS IMPRESSAS - 2\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DAS PEÇAS IMPRESSAS - 3\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Devido a dificuldade na simulaçao de peças produzidas por este processo, que possuem alta anisotropia[X] e grande dispersao nos resultados dependendo da qualidade da impressao[X], foram realizados testes estruturais estaticos para se garantir que as peças nao falhassem. 
+
+Cabe aqui um adendo de que, para se garantir ainda maior rigidez a bancada como um todo, é de interesse a produçao dessas peças em metal, realizando as devidas modificaçoes para melhor se adequar ao processo de manufatura escolhido. A produçao dessas peças em metal contudo nao foi realizada dentro do tempo deste projeto.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DA SOLUCAO COM AS GUIAS LINEARES - 3\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Dado que a bancada nao teve seu movimento em X restrito exclusivamente por células de carga (como foi o caso no eixo Z), foi necessario permitir liberdade de movimento neste sentido, de modo que o carreganmento se desse quase que exclusivamente na célula de carga. Para isto foram instaladas guias lineares nesta direçao. Esta soluçao possui baixo atrito, além de apresentar pouquissima foga nos sentidos transversais do eixo da guia, o que favorece o alinhamento da bancada.
+
+Como as guias possuem pouca folga, a tolerancia de montagem também é pequena, isto é, uma pequena angulaçao entre os dois trilhos causaria travamento do sistema, o que é indesejado. Para permitir ajuste desse angulo durante a montagem das mesmas foi modelado um rasgo no furo das peças de encaixe dos trilhos, como mostrado na figura X. Assim pode-se correr as guias durante a instalaçao e ajustar o angulo de modo a garantir o nao travamento.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DO RASGO UTILIZADO PARA FACILITAR MONTAGEM DAS GUIAS - 3\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+A soluçao ideal para se garantir rigidez torcional da torre ao longo do eixo Z seria o treliçamento das laterais com os perfis de aluminio. Esta soluçao porem elevaria o custo do projeto para além do que a equipe possuia de verba disponivel. A soluçao encontrada foi treliçar as duas laterais com cabos de aço.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DA SOLUCAO COM OS CABOS DE ACO - 3\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Foram realizadas roscas nos furos dos quatro cantos da bancada, instalados argolas de fixaçao e entao os cabos de aço foram instalados nas duas laterais, com tensionadores de modo a facilitar a instalaçao mesmo com pequenos desvios no comprimento dos cabos.
+
+A primeira bancada utilizava barras roscadas como soluçao para o ajuste de angulo de incidencia do componente testado. Esta soluçao possuia tres problemas principais:
+
+\begin{enumerate}
+    \item O ajuste demorava, pois era necessario girar as duas barras até o angulo desejado medindo este angulo com o auxilio de um nivel digital.
+    \item Era dificil garantir que as duas barras estariam no mesmo angulo, isto é, que o componente nao ficasse inclinado lateralmente.
+    \item Pouca precisao se tinha no ajuste desse angulo.
+\end{enumerate}
+
+A soluçao encontrada foi trocar o ajuste continuo por um ajuste discreto, utilizando furos com angulaçao previamente decidida.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DA SOLUCAO DE AJUSTE DE ANGULO DE INCIDENCIA - 3\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Esta soluçao garante que os mesmos angulos sempre serao usados, o que ainda facilita o processamento dos dados posteriormente.
+
+Os angulos escolhidos foram: 0, 3, 6, 9, 12, 15 e 18 graus.
+
+O principal problema desta soluçao é nao permitir ajustes finos no angulo, o que a principio sera um problema apenas caso se deseje descobrir o angulo de estol de asas. Este problema porem é tomado pequeno frente aos enfrentados com a soluçao anterior, e pode ser contornado fabricando-se uma peça de ajuste com mais furaçoes e/ou uma peça de ajuste continuo a ser usada especificamente no teste de estol.
+
+\subsection{Eletronica}
+
+Como um dos maiores problemas do MVP foi o de falha no sistema eletronico devido a mal-contato, atençao especial foi dada a esta parte. Duas soluçoes foram propostas:
+
+\begin{itemize}
+    \item Produçao de placas de circuito impresso para todos os sistemas
+    \item Utilizaçao de conectores mais robustos
+\end{itemize}
+
+Foram produzidas duas PCBs: uma para os transdutores de celula de carga e outra para os transdutores de pressao diferencial.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DA PCB - 1\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DA PCB - 2\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Foram confeccionados cases para alocaçao de ambas as placas e seus conectores. Os conectores usados neste projeto foram do modelo GX16, popularmente conhecidos como "conectores de aviaçao". Estes possuem trava rosqueada e otimo contato eletrico. Os conectores ficam presos no case e nao na placa, de modo que em caso de acidentes de tracionamento dos cabos as placas nao sejam danificadas.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DOS CASES+PCB+CONECTORES\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DA CONEXAO INTERNA COM FIOS\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsection{Software Embarcado}
+
+Como ja mencionado, todo o software embarcado foi refatorado da versao MVP para esta primeira versao final. Alguns pontos principais merecem destaque:
+
+\begin{itemize}
+    \item Integraçao do Arduino como sensor na plataforma central, permitindo que mais Arduinos sejam conectados paralelamente de forma simplificada
+    \item Implementaçao de nova rotina de ligaçao da bancada, adaptando automaticamente as configuraçoes internas aos sensores que estiverem conectados, evitando a necessidade de alterar o codigo toda vez que um novo teste for executado
+    \item Implementaçao de rotina de configuraçao do teste remotamente via app, permitindo que o operador unclua no arquivo de dados detalhes do teste como o dispositivo testado, seu angulo de incidencia e outras condiçoes, facilitando o entendimento dos dados pelo responsavel por processa-los. 
+    \item Inclusao de codigo para uso da sonda de angulo de ataque através dos sensores de pressao diferencial
+    \item Transferencia de todas as confguraçoes do software para um arquivo de configuraçao simplificada, permitindo que pessoas sem experiencia com o software embarcado consigam realizar configuraçoes avançadas de forma simples
+\end{itemize}
+
+Sobre o primeiro ponto, na versao MVP o Arduino que fazia a aquisiçao do sinal das celulas nao se comunicava com o Raspberry Pi (plataforma central). Deste modo, seus dados nao possuiam sincronia, e esta deveria ser feita posteriormente por quem fosse se utilizar dos dados. Alem de exigir um grande trabalho manual, este processo muitas vezes nao ficava com qualidade satisfatoria, e os dados acabavam nao sincronizados. Para resolver este problema o Arduino passou a ser conectado na plataforma central e tratado por esta como um sensor, que responde a pedidos de envio de dados. Para garantir robustez na comunicaçao foi implementado comunicaçao de dois sentidos com confirmaçao de recebimento e checksum.  
+
+\subsection{Software de Analise}
+
+DESCREVER SOFTWARE DE ANALISE
+
+\subsection{Sensoriamento}
+
+\begin{itemize}
+    \item Sonda de angulo de ataque
+    \item IMU
+\end{itemize}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{SIMULACAO CFD\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Foram posicionados na bancada um tubo de pitot e uma sonda de angulo de ataque. O tubo foi posicionado na bancada de forma a medir velocidade de fluxo livre (longe de distorções causadas pelo conjunto carro/bancada/componente). Para auxiliar neste posicionamento uma simulaçao qualitativa foi realizada em CFD utilizando o codigo Fluent disponivel na plataforma Ansys. A modelagem foi simplificada em pontos considerados nao criticos de modo a evitar problemas de malha e acelerar a convergencia dos resultados.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{ESQUEMATICO DA DISPOSICAO DOS TUBOS DE PITOT\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+A sonda de angulo de ataque deve ser fixada ao componente a ser testado, com alinhamento junto a linha de referencia horizontal do mesmo (i.e. linha de corda da raiza da asa). Este posicionamento permite que o angulo de ataque real seja medido pela sonda. 
+
+Para o prototipo a ser testado foi confeccionado um suporte para a sonda, a ser instalado no bordo de ataque da asa. Suportes como este podem ser modelados e impressos rapidamente, e permitem um melhor alinhamento da sonda ao componente.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{SONDA NA ASA\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsection{Bancada final}
+
+As figuras X e X mostram a modelagem final da bancada e mesma construida.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{RENDERING FINAL DA BANCADA\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DA BANCADA FINAL CONSTRUIDA\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\section{Testes}
+
+Uma serie de testes foi feita inicialmente de forma mais rapida visando-se buscar melhorias a serem feitas na bancada, seja na parte mecanica, eletronica ou software. Estes testes se deram simultaneamente ao projeto e foram responsaveis por melhorias como:
+
+\begin{enumerate}
+    \item Verificaçao da necessidade de simulaçao da bancada para otimizaçao da posiçao do tubo de pitot.
+    \item Verficaçao da calibraçao das células de carga e tubos de pitot.
+    \item Inclusao da possibilidade de zeragem das células e pitots ao inicio do teste via app
+    \item Inclusao da IMU para mediçao das aceleraçoes sofridas durante o teste.
+    \item Verificaçao da necessidade de uso da sonda acoplada ao componente a ser testado
+\end{enumerate}
+
+Uma vez finalizada a versao final da bancada, foi iniciada a conduçao dos testes comparativos.
+
+\subsection{O dispositivo de teste}
+
+Os testes comparativos tem por finalidade gerar dados sobre geometrias conhecidas que possam ser confrontados com literatura existente. Para este teste o dispositivo ideal seria uma asa utilizando perfis do tipo NACA, que possuem vasta literatura de dados experimentais. Devido a problemas orçamentarios e de tempo nao foi possivel a construçao de tal dispositivo, sendo o teste realizado com a asa do primeiro prototipo da equipe para o ano de 2019. A geometria desta asa se encontra a seguir:
+
+\begin{table}[]
+\centering
+\begin{tabular}{lll}
+ & 1a Seçao & 2a Seçao \\
+Perfil & Selig1223 & Selig1223 \\
+Envergadura & X & X \\
+Corda na raiz & X & X \\
+Corda na ponta & X & X
+\end{tabular}
+\end{table}
+
+A asa nao apresenta torçao geometrica.
+
+Foi escolhida a velocidade de X m/s para os testes, visto que é a velocidade de cruzeiro da aeronave. O Reynolds referente a Corda Média Aerodinamica da asa é de X para as condiçoes do teste.
+
+%Esta asa foi construida em isopor laminado com fibra de vidro e testes com a mesma foram realizados, porém devido a uma torçao do perfil durante a laminaçao da mesma, os resultados se mostraram bastante dispares com a teoria. Por este motivo se optou por utilizar nos testes a asa do prototipo 2019 da equipe, que se encontra detalhada na modelagem a seguir:
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{MODELAGEM COM DIMENSOES DA ASA 2019.\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Para a simulaçao de tal asa foi utilizado o algoritmo de codigo-aberto AVL, que implementa o Vortex Lattice Method.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{RENDERING DA SIMULACAO NO AVL\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+foi confeccionada com nervuras em MDF 6mm, detalhes em madeira balsa, com laminaçao de fibra de carbono nas areas com maiores solicitaçoes, conceito estrutural de caixa de torçao e entelamento com fita Adelbras. Simulaçoes estruturais para tal asa foram realizadas buscando-se avaliar a torçao geometrica e a deflexao desenvolvidas durante sua operaçao. Uma torçao maxima de X graus e um deslocamento de ponta maximo de X mm foram encontrados. Segundo X, a perda de sustentaçao para tal condiçao seria de X, valor baixo e portanto ignorado durante a avaliaçao dos resultados.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DA ASA CONSTRUIDA\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsection{O teste}
+
+Os testes foram conduzidos em uma avenida reta e comprida (Avenida Beira-mar Norte), excencialmente plana e em horário de trânsito reduzido (durante a madrugada).
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{PRINT DO MAPS MOSTRANDO CIRCUITO DE TESTE.\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+O teste foi conduzido acelerando-se o carro até uma velocidade de aproximadamente 15m/s (54km/h) e mantendo essa velocidade durante o maior tempo possivel. Sendo conduzido desta maneira o teste entrega resultados para apenas um valor de Reynolds, e nao em uma faixa de Reynolds como foi inicialmente estipulado. Foi assim feito pois nos testes preliminares verificou-se que cada bateria de testes demorava um tempo consideravel, e repetir ela para uma grande faixa de velocidades reduziria o numero de dados para cada uma dessas velocidades. Decidiu-se portanto ter um maior numero de dados para um mesmo Reynolds, garantindo-se uma qualidade melhor dos resultados finais. Com mais tempo porem, ou uma conduçao mais rapida dos testes, poder-se-ia (sdds presidento) realizar os testes para mais valores de Reynolds.  
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DO APP SENDO USADO\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Para se averiguar a velocidade foram utilizados dois recursos: velocimetro do proprio carro e velocidade medida pelo pelos tubos de pitot. Idealmente as duas medidas devem apresentar resultado semelhante. Para se acompanhar a velocidade medida pelos pitots foi utilizado o aplicativo desenvolvido.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DO TESTE - 1\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DO TESTE - 2\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DO TESTE - 3\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Para cada bateria de testes a asa foi instalada em um ângulo de incidencia diferente. Foram realizados testes para os ângulos de 0, 3, 6, 9, 12 e 15 graus. Para cada um dos angulos, tres baterias de teste foram conduzidas, buscando-se criar uma base de dados grande e diminuir a influencia dos testes no resultado.
+

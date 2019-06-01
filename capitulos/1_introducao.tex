@@ -1,27 +1,37 @@
 \chapter{Introdução}\label{chp:intro}
 
-Um problema frequente em projetos aeronáuticos é a incerteza quanto aos dados com que se está trabalhando, em especial os coeficientes aerodinâmicos dos diversos componentes do projeto. A resolução deste problema é abordada em geral de três maneiras: modelos teóricos [1], simulação fluidodinâmica [2] ou experimentação, possuindo cada um destes suas vantagens e desvantagens.
+Com a recente diminuição do custo das plataformas de processamento e sensoriamento embarcado [X] um novo ramo de mercado surgiu ao redor do desenvolvimento de VANTs [x].
 
-A estimativa teórica em geral se encontra no projeto como método único, ou como método inicial em projetos com mais otimizações. A vantagem deste se dá pela vasta literatura disponível e por consistir basicamente na aplicação das devidas fórmulas. A desvantagem está na incerteza sobre a exatidão do resultado, isto é, tem-se um resultado, mas não se sabe o quanto ele é próximo a realidade e, se o valor é subestimado ou se é superestimado.
+Ainda que os avanços na tecnologia de baterias tenha permitido que este mercado surgisse, sua baixa densidade de potencia[X] exige que os projetos de VANTs sejam altamente otimizados em relação ao consumo energético.
 
-A simulação é uma alternativa muito utilizada quando se tem uma literatura já consolidada para a geometria avaliada. Sua vantagem se dá na maior exatidão dos resultados quando o modelo e os parâmetros de simulação já são bem conhecidos e comportados. O problema principal deste metodo se encontra na maior dificuldade de emprego, ja que se limita a modelos que ja tenham sido validados. Assim como nos modelos teóricos, na simulaçao existe dificuldade em se saber o quanto o resultado está errado, e para geometrias com parâmetros de simulaçao desconhecidos se corre o risco de ter resultados ordens de grandeza afastados da realidade. [3].
+Um problema frequente em projetos aeronáuticos, porém, é a incerteza quanto aos dados aerodinâmicos dos diversos componentes que compõem a aeronave. A resolução deste problema é abordada em geral de três maneiras: estimativas teóricas [X], simulação fluidodinâmica [X] e experimentação, possuindo cada um destes suas vantagens e desvantagens.
 
-A experimentação consiste em preparar um modelo físico semelhante ao projetado e ensaia-lo em um escoamento com características conhecidas. A dificuldade de emprego deste em geral é maior que a dos primeiros por exigir um trabalho de construçao bem executado e equipamentos de mediçao que forneçam a precisão esperada nos resultados. Estas características fazem com que a experimentação tenha um custo elevado, muito diferente dos dois primeiros métodos, que tem custo praticamente nulo. Sua vantagem, porém, se dá no fato de que a certeza sobre os valores encontrados em geral é muito maior. Caso o teste tenha sido executado da maneira correta, os equipamentos de medição tenham precisão conhecida e sejam respeitadas as premissas do modelo, chega-se num resultado que pode ser tomado como real dentro de um intervalo de incerteza do equipamento de medição, isto é, diferente dos dois métodos anteriores, onde o resultado encontrado pode não corresponder com a realidade (se o modelo ou parâmetros incorretos forem utilizados), neste existe uma faixa de certeza sobre o resultado.
+As estimativas teóricas em geral se encontram no projeto como método inicial de avaliação. A vantagem desta se dá pela vasta literatura disponível e por consistir na aplicação de fórmulas (em geral) simples. A desvantagem está na incerteza sobre a exatidão do resultado, isto é, não se sabe o quanto o mesmo esta próximo da realidade, ou mesmo se o valor é subestimado ou superestimado.
 
-Como já dito, o principal problema do método experimental é a necessidade de equipamento especializado. O método mais comum envolve a colocação do modelo construído dentro de um túnel de vento, com as forças no modelo medidas através de uma balança de precisão [4]. Túneis de vento, contudo, são equipamentos grandes e caros, e não existentes na maioria das universidades brasileiras. Túneis pequenos, encontrados em um menor número de universidades (como a UFSC) não apresentam a possibilidade de medição de esforços aerodinâmicos em grandes geometrias, como asas ou dispositivos de ponta de asa, limitando-se praticamente a medição de perfis e outras geometrias simples, com dimensões e Reynolds bastante reduzidos [5].
+A simulação é uma alternativa muito utilizada, e sua vantagem se dá na maior exatidão dos resultados quando o modelo e os parâmetros de simulação já são bem conhecidos e comportados para a geometria estudada. O problema principal deste método se encontra na maior dificuldade de emprego, pois se limita a modelos que já tenham sido validados contra resultados experimentais. Para geometrias pouco estudadas, com parâmetros de simulação desconhecidos, corre-se o risco inclusive de se obter resultados ordens de grandeza afastados da realidade[X].
 
-A proposta deste trabalho é o projeto e análise de uma bancada de medição de esforços aerodinâmicos em ambiente aberto, consistindo de uma balança de precisão a ser embarcada na caçamba de uma camionete, que ao ser movimentada faz com que um escoamento surja sobre o dispositivo a ser experimentado. Este método propõe um equipamento com custo reduzido e de facil utilizaçao, eliminando a necessidade de um túnel de vento. Para alcançar o objetivo proposto o projeto procurara utilizar peças comerciais, manufatura aditiva e equipamentos eletrônicos de baixo custo.
+Por ultimo, a experimentação consiste em preparar um modelo físico semelhante ao projetado e ensaia-lo em um escoamento com as características desejadas. A dificuldade de emprego deste em geral é maior que a dos primeiros por exigir um trabalho de construção bem executado e equipamentos de medição com elevada precisão. Estas características fazem com que a experimentação tenha um custo elevado, muito diferente dos dois primeiros métodos, que tem custo praticamente nulo. Sua vantagem, porém, se dá no fato de que a certeza sobre os valores encontrados em geral é muito maior. Caso o teste tenha sido executado da maneira correta, os equipamentos de medição tenham precisão conhecida e sejam respeitadas as premissas do modelo, chega-se num resultado que pode ser tomado como real dentro de um intervalo de incerteza do equipamento de medição, isto é, diferente dos dois métodos anteriores, onde o resultado encontrado pode não corresponder com a realidade, neste existe uma faixa de certeza sobre o resultado.
+
+\section{Sobre o projeto}
+
+O principal problema do método experimental é a necessidade de equipamento especializado, e o método mais comum envolve a caracterização do modelo construído (em escala ou não) em um túnel de vento, com as forças medidas através de uma balança de precisão [X]. Túneis de vento, contudo, são equipamentos grandes e caros, e não disponíveis na maioria das universidades brasileiras. Túneis pequenos, como o da UFSC, são mais comuns porém não apresentam a possibilidade de medição de esforços aerodinâmicos em geometrias mais sofisticadas, devido a alta interferência no escoamento gerada pelas paredes do túnel. Componentes como asas, dispositivos de ponta de asa, conjuntos moto-propulsores, entre outros, que possuem grande relevância nos cálculos aerodinâmicos, acabam não podendo ter seu comportamento caracterizado nessas universidades.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
-    \caption{FIGURA MOSTRANDO PROPOSTA INCIIAL DA BANCADA\cite{autor}.}
+    \includegraphics[width=.8\linewidth]{figuras/renders/perspectiva_sem_asa_com_pitot.png}
+    \caption{Renderização da bancada modelada no software Solidworks 2016\cite{autor}.}
     \label{fig:placeholder}
 \end{figure}
 
-\begin{itemize}
-    \item Necessidade por bons coeficientes aerodinamicos
-    \item Simulaçoes em regime transisente sao duvidosas
-    \item Tunel de vento é dificil de encontrar, caro, e tem tamanho limitado
-    \item Simulaçoes nao pegam mudanças advindas da construçao
-\end{itemize}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/construcao/bancada_inteira.jpg}
+    \caption{Foto da bancada construída\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+A proposta deste trabalho consiste no projeto e análise de uma bancada para medição de esforços aerodinâmicos sem túnel de vento, a ser utilizada para a caracterização aerodinâmica de componentes de VANTs. Tal bancada consiste de células de carga, tubos de pitot e outros sensores, e é embarcada em um veiculo automotor, que ao ser movimentado faz com que um escoamento surja sobre o componente a ser experimentado.
+
+\section{Objetivo geral}
+
+Desenvolvimento de uma bancada de baixo custo para caracterização aerodinâmica de componentes de VANTs, visando a eliminação ou minimização da necessidade de um túnel de vento.

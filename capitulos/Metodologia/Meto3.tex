@@ -1,0 +1,214 @@
+\subsection{Eletronica}
+
+Como um dos maiores problemas do MVP foi o de falha no sistema eletrônico devido a mal-contato, atenção especial foi dada a esta parte. Duas soluções foram propostas:
+
+\begin{itemize}
+    \item Produção de placas de circuito impresso para todos os sistemas
+    \item Utilização de conectores mais robustos
+\end{itemize}
+
+Foram produzidas duas PCBs: uma para os transdutores de célula de carga e outra para os transdutores de pressão diferencial.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DA PCB - 1\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DA PCB - 2\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Foram confeccionados cases para alocação de ambas as placas e seus conectores. Os conectores usados neste projeto foram do modelo GX16, popularmente conhecidos como "conectores de aviação". Estes possuem trava rosqueada e ótimo contato elétrico. Os conectores ficam presos no case e não na placa, de modo que em caso de acidentes de tracionamento dos cabos as placas não sejam danificadas.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DOS CASES+PCB+CONECTORES\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DA CONEXAO INTERNA COM FIOS\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsection{Software Embarcado}
+
+Como já mencionado, todo o software embarcado foi refatorado da versão MVP para esta primeira versão final. Alguns pontos principais merecem destaque:
+
+\begin{itemize}
+    \item Integração do Arduino como sensor na plataforma central, permitindo que mais Arduinos sejam conectados paralelamente de forma simplificada
+    \item Implementação de nova rotina de ligação da bancada, adaptando automaticamente as configurações internas aos sensores que estiverem conectados, evitando a necessidade de alterar o código toda vez que um novo teste for executado
+    \item Implementação de rotina de configuração do teste remotamente via app, permitindo que o operador inclua no arquivo de dados detalhes do teste como o dispositivo testado, seu angulo de incidência e outras condições, facilitando o entendimento dos dados pelo responsável por processa-los 
+    \item Inclusão de código para uso da sonda de angulo de ataque através dos sensores de pressão diferencial
+    \item Transferência de todas as configurações do software para um arquivo de configuração simplificada, permitindo que pessoas sem experiencia com o software embarcado consigam realizar configurações avançadas de forma simples
+\end{itemize}
+
+Sobre o primeiro ponto, na versão MVP o Arduino que fazia a aquisição do sinal das células não se comunicava com o Raspberry Pi (plataforma central). Deste modo, seus dados não possuíam sincronia, e esta deveria ser feita posteriormente por quem fosse se utilizar dos dados. Além de exigir um grande trabalho manual, este processo muitas vezes não ficava com qualidade satisfatória, e os dados acabavam não sincronizados. Para resolver este problema o Arduino passou a ser conectado na plataforma central e tratado por esta como um sensor, que responde a pedidos de envio de dados. Para garantir robustez na troca de dados foi implementado protocolo de comunicação de dois sentidos com confirmação de recebimento e checksum.  
+
+\subsection{Software de Analise}
+
+DESCREVER SOFTWARE DE ANALISE
+
+\subsection{Sensoriamento}
+
+\begin{itemize}
+    \item Sonda de angulo de ataque
+    \item IMU
+\end{itemize}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{SIMULACAO CFD\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Foram posicionados na bancada um tubo de Pitot e uma sonda de angulo de ataque. O tubo foi posicionado na bancada de forma a medir velocidade de fluxo livre (longe de distorções causadas pelo conjunto carro/bancada/componente). Para auxiliar neste posicionamento uma simulação qualitativa foi realizada em CFD utilizando o código Fluent, disponível na plataforma Ansys. A modelagem foi simplificada em pontos considerados não criticos de modo a evitar problemas de malha e acelerar a convergência dos resultados.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{ESQUEMATICO DA DISPOSICAO DOS TUBOS DE PITOT\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+A sonda de angulo de ataque deve ser fixada ao componente a ser testado, com alinhamento junto a linha de referencia horizontal do mesmo (i.e. linha de corda da raiz da asa). Este posicionamento permite que o angulo de ataque real seja medido pela sonda. 
+
+Para o protótipo a ser testado foi confeccionado um suporte para a sonda, a ser instalado no bordo de ataque da asa. Suportes como este podem ser modelados e impressos rapidamente, e permitem um melhor alinhamento da sonda ao componente.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{SONDA NA ASA\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsection{Bancada final}
+
+As figuras X e X mostram a modelagem final da bancada e mesma construída.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{RENDERING FINAL DA BANCADA\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DA BANCADA FINAL CONSTRUIDA\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+
+
+\section{Testes}
+
+Uma serie de testes foi realizada inicialmente de forma mais rápida visando-se buscar melhorias a serem feitas na bancada, seja na parte mecânica, eletrônica ou de software. Estes testes se deram simultaneamente ao projeto e foram responsáveis por melhorias como:
+
+\begin{enumerate}
+    \item Verificação da necessidade de simulação da bancada para otimização da posição do tubo de Pitot.
+    \item Verificação da calibração das células de carga e tubos de Pitot.
+    \item Inclusão da possibilidade de zeragem das células e Pitots ao inicio do teste via app
+    \item Inclusão da IMU para medição das acelerações sofridas durante o teste.
+    \item Verificação da necessidade de uso da sonda acoplada ao componente a ser testado
+\end{enumerate}
+
+Uma vez finalizada a versão final da bancada, foi iniciada a condução dos testes comparativos.
+
+\subsection{O dispositivo de teste}
+
+Os testes comparativos tem por finalidade gerar dados sobre geometrias conhecidas que possam ser confrontados com literatura existente. Para este teste o dispositivo ideal seria uma asa utilizando perfis do tipo NACA, que possuem vasta literatura de dados experimentais, porém devido a problemas orçamentários e de tempo não foi possível a construção de tal dispositivo, sendo o teste realizado com a asa do primeiro protótipo da equipe para o ano de 2019. A geometria desta asa se encontra a seguir:
+
+\begin{table}[]
+\centering
+\begin{tabular}{lll}
+ & 1a Seçao & 2a Seçao \\
+Perfil & Selig1223 & Selig1223 \\
+Envergadura & X & X \\
+Corda na raiz & X & X \\
+Corda na ponta & X & X
+\end{tabular}
+\end{table}
+
+Foi escolhida a velocidade de X m/s para os testes, visto que é a velocidade de cruzeiro da aeronave. O Reynolds referente a Corda Média Aerodinâmica da asa é de X para as condições do teste.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{MODELAGEM COM DIMENSOES DA ASA 2019.\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Para a simulação de tal asa foi utilizado o software de código-aberto AVL, que implementa o algoritmo Vortex Lattice Method.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{RENDERING DA SIMULACAO NO AVL\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+A asa foi confeccionada com nervuras em MDF 6mm, detalhes em madeira balsa, com laminaçao de fibra de carbono nas areas com maiores solicitaçoes, conceito estrutural de caixa de torçao e entelamento com fita Adelbras. Simulações estruturais para tal asa foram realizadas buscando-se avaliar a torçao geométrica e a deflexão desenvolvidas durante sua operação. Uma torçao máxima de X graus e um deslocamento de ponta máximo de X mm foram encontrados. Segundo X, a perda de sustentação para tal condição seria de X, valor baixo e portanto ignorado durante a avaliação dos resultados.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DA ASA CONSTRUIDA\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsection{O teste}
+
+Os testes foram conduzidos em uma avenida reta e comprida (Avenida Beira-mar Norte), excencialmente plana e em horário de trânsito reduzido (durante a madrugada).
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{PRINT DO MAPS MOSTRANDO CIRCUITO DE TESTE.\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+O teste foi conduzido acelerando-se o carro até uma velocidade de aproximadamente 15m/s (54km/h) e mantendo essa velocidade durante o maior tempo possível. Sendo conduzido desta maneira o teste entrega resultados para apenas um valor de Reynolds. Foi assim feito pois em testes preliminares verificou-se que cada bateria de testes demorava um tempo considerável, e repetir ela para uma grande faixa de Reynolds reduziria o numero de dados para cada velocidade. Decidiu-se portanto ter um maior numero de dados para um mesmo Reynolds, garantindo-se uma qualidade melhor dos resultados finais. Com mais tempo porem, ou uma condução mais rápida dos testes, poder-se-ia (sdds presidento) realizar os testes para mais valores de Reynolds.  
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DO APP SENDO USADO\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Para se averiguar a velocidade foram utilizados dois recursos: velocímetro do próprio carro e velocidade medida pelo pelos tubos de Pitot. Idealmente as duas medidas devem apresentar resultado semelhante. Para se acompanhar a velocidade medida pelos Pitots em tempo real foi utilizado o aplicativo desenvolvido.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DO TESTE - 1\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DO TESTE - 2\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=.8\linewidth]{figuras/placeholder.png}
+    \caption{FOTO DO TESTE - 3\cite{autor}.}
+    \label{fig:placeholder}
+\end{figure}
+
+Para cada bateria de testes a asa foi instalada em um ângulo de incidência diferente. Foram realizados testes para os ângulos de 0, 3, 6, 9, 12 e 15 graus. Para cada um dos ângulos, três baterias de teste foram conduzidas, buscando-se criar uma base de dados grande e diminuir a influencia dos testes nos resultados.
+
